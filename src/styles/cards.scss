@@ -18,17 +18,17 @@
   .card-sides {
     border: 1px solid black;
     border-radius: var(--border-radius);
-    overflow: hidden;
-    z-index: 0;
+    // overflow: hidden;
+    // z-index: 0;
 
     .card-side {
       background-image: url(img/cards.jpg);
 
-      &.card-front {
+      &.front {
         border-radius: var(--border-radius);
         text-align: center;
       }
-      &.card-back {
+      &.back {
         background-position: 100% 0;
         border-radius: var(--border-radius);
       }

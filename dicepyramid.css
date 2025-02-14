@@ -303,17 +303,15 @@ body > .card {
 .card .card-sides {
   border: 1px solid black;
   border-radius: var(--border-radius);
-  overflow: hidden;
-  z-index: 0;
 }
 .card .card-sides .card-side {
   background-image: url(img/cards.jpg);
 }
-.card .card-sides .card-side.card-front {
+.card .card-sides .card-side.front {
   border-radius: var(--border-radius);
   text-align: center;
 }
-.card .card-sides .card-side.card-back {
+.card .card-sides .card-side.back {
   background-position: 100% 0;
   border-radius: var(--border-radius);
 }
