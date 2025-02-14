@@ -1,0 +1,40 @@
+{
+  "rootDir": ".",
+  "compilerOptions": {
+    "target": "es5",
+    "module": "none",
+    "lib": ["dom", "esnext"],
+    "sourceMap": false,
+    "outFile": "dicepyramid.js"
+  },
+  "files": [
+    "src/framework.d.ts",
+    "src/stock.d.ts",
+    "src/cards/cardInfo.ts",
+    "src/dicepyramid.d.ts",
+    "src/define.ts",
+
+    "node_modules/bga-animations/src/animations.ts",
+    "node_modules/bga-animations/src/animations/attach-with-animation.ts",
+    "node_modules/bga-animations/src/animations/cumulated-animations.ts",
+    "node_modules/bga-animations/src/animations/pause-animation.ts",
+    "node_modules/bga-animations/src/animations/show-screen-center-animation.ts",
+    "node_modules/bga-animations/src/animations/slide-animation.ts",
+    "node_modules/bga-animations/src/animations/slide-to-animation.ts",
+    "node_modules/bga-animations/src/animation-manager.ts",
+    "node_modules/bga-animations/src/animations-utils.ts",
+
+    "node_modules/bga-cards/src/animations.ts",
+    "node_modules/bga-cards/src/stocks/card-stock.ts",
+    "node_modules/bga-cards/src/stocks/manual-position-stock.ts",
+    "node_modules/bga-cards/src/stocks/line-stock.ts",
+    "node_modules/bga-cards/src/stocks/slot-stock.ts",
+    "node_modules/bga-cards/src/stocks/hand-stock.ts",
+    "node_modules/bga-cards/src/stocks/all-visible-deck.ts",
+    "node_modules/bga-cards/src/stocks/void-stock.ts",
+    "node_modules/bga-cards/src/stocks/deck.ts",
+    "node_modules/bga-cards/src/card-manager.ts",
+    "node_modules/bga-cards/src/sort.ts",
+    "src/dicepyramid.ts"
+  ]
+}

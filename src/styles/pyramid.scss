@@ -1,0 +1,110 @@
+.pyramid {
+  margin: 0 auto;
+
+  .card-stock {
+    --row-height: calc(var(--card-height) * 0.5);
+    --col-width: calc(var(--card-width) * 0.51);
+
+    position: relative;
+    top: var(--row-height);
+    height: calc(1 * var(--row-height));
+    width: calc(10 * var(--col-width));
+    padding-top: var(--row-height);
+
+    @for $i from 1 through 2 {
+      &:has([data-slot-id="#{$i}"] > .card) {
+        height: calc(2 * var(--row-height));
+      }
+    }
+    @for $i from 3 through 5 {
+      &:has([data-slot-id="#{$i}"] > .card) {
+        height: calc(3 * var(--row-height));
+      }
+    }
+    @for $i from 6 through 9 {
+      &:has([data-slot-id="#{$i}"] > .card) {
+        height: calc(4 * var(--row-height));
+      }
+    }
+    @for $i from 10 through 15 {
+      &:has([data-slot-id="#{$i}"] > .card) {
+        height: calc(5 * var(--row-height));
+      }
+    }
+
+    .pyramid-slot {
+      margin-top: calc(-1 * var(--row-height));
+      position: absolute;
+
+      // top row
+      &[data-slot-id="0"] {
+        top: calc(var(--row-height) * 0);
+        left: calc(var(--col-width) * 4);
+      }
+
+      // row 2
+      &[data-slot-id="1"] {
+        top: calc(var(--row-height) * 1);
+        left: calc(var(--col-width) * 3);
+      }
+      &[data-slot-id="2"] {
+        top: calc(var(--row-height) * 1);
+        left: calc(var(--col-width) * 5);
+      }
+
+      // row 3
+      &[data-slot-id="3"] {
+        top: calc(var(--row-height) * 2);
+        left: calc(var(--col-width) * 2);
+      }
+      &[data-slot-id="4"] {
+        top: calc(var(--row-height) * 2);
+        left: calc(var(--col-width) * 4);
+      }
+      &[data-slot-id="5"] {
+        top: calc(var(--row-height) * 2);
+        left: calc(var(--col-width) * 6);
+      }
+
+      // row 4
+      &[data-slot-id="6"] {
+        top: calc(var(--row-height) * 3);
+        left: calc(var(--col-width) * 1);
+      }
+      &[data-slot-id="7"] {
+        top: calc(var(--row-height) * 3);
+        left: calc(var(--col-width) * 3);
+      }
+      &[data-slot-id="8"] {
+        top: calc(var(--row-height) * 3);
+        left: calc(var(--col-width) * 5);
+      }
+      &[data-slot-id="9"] {
+        top: calc(var(--row-height) * 3);
+        left: calc(var(--col-width) * 7);
+      }
+
+      // row 5
+      &[data-slot-id="10"] {
+        top: calc(var(--row-height) * 4);
+        left: calc(var(--col-width) * 0);
+      }
+      &[data-slot-id="11"] {
+        top: calc(var(--row-height) * 4);
+        left: calc(var(--col-width) * 2);
+      }
+      &[data-slot-id="12"] {
+        top: calc(var(--row-height) * 4);
+        left: calc(var(--col-width) * 4);
+      }
+      &[data-slot-id="13"] {
+        top: calc(var(--row-height) * 4);
+        left: calc(var(--col-width) * 6);
+      }
+      &[data-slot-id="14"] {
+        top: calc(var(--row-height) * 4);
+        left: calc(var(--col-width) * 8);
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+.card {
+  border-radius: var(--border-radius);
+  position: relative;
+
+  width: var(--card-width);
+  height: var(--card-height);
+
+  &.bga-cards_selectable-card {
+    animation: pulsate-selectable 1s ease-out infinite;
+  }
+
+  &.bga-cards_selected-card {
+    animation: none;
+    box-shadow: 0 0 10px 5px #00c62d;
+    z-index: 1;
+  }
+
+  .card-sides {
+    border: 1px solid black;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    z-index: 0;
+
+    .card-side {
+      background-image: url(img/cards.jpg);
+
+      &.card-front {
+        border-radius: var(--border-radius);
+        text-align: center;
+      }
+      &.card-back {
+        background-position: 100% 0;
+        border-radius: var(--border-radius);
+      }
+    }
+  }
+
+  & > .card-commands {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    cursor: default;
+
+    button {
+      max-width: 95%;
+      text-wrap: auto;
+      margin: 3px 0px;
+    }
+
+    #btnUsed {
+      display: none;
+    }
+  }
+}
+
+.card-help {
+  .card-help-header {
+    font-size: large;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    margin-right: 40px;
+  }
+
+  .card-help-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+
+      .image {
+        background-image: url(img/cards_large.jpg);
+        width: 210px;
+        height: 152px;
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+      .text {
+        margin-left: 10px;
+      }
+    }
+    .room {
+      .image {
+        border-radius: 30px 30px 0 0;
+      }
+    }
+    .relic {
+      .image {
+        border-radius: 0 0 30px 30px;
+        rotate: 180deg;
+      }
+    }
+
+    .card-name {
+      font-size: large;
+      font-weight: bold;
+      font-variant: small-caps;
+    }
+
+    .card-effect {
+      font-size: small;
+    }
+  }
+}

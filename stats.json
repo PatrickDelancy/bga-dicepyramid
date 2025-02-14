@@ -1,0 +1,41 @@
+{
+  "table": {
+    "turns_count": {
+      "id": 10,
+      "name": "Number of turns",
+      "type": "int"
+    }
+  },
+  "player": {
+    "turns_count": {
+      "id": 10,
+      "name": "Number of turns",
+      "type": "int"
+    },
+    "rooms_taken": {
+      "id": 11,
+      "name": "Number of rooms completed",
+      "type": "int"
+    },
+    "relics_used": {
+      "id": 12,
+      "name": "Number of relics used",
+      "type": "int"
+    },
+    "relics_used_unforced": {
+      "id": 13,
+      "name": "Number of relics used with rerolls remaining",
+      "type": "int"
+    },
+    "relics_discarded": {
+      "id": 14,
+      "name": "Number of relics discarded for new turn",
+      "type": "int"
+    },
+    "relics_lost": {
+      "id": 15,
+      "name": "Number of relics discarded for hand limit",
+      "type": "int"
+    }
+  }
+}

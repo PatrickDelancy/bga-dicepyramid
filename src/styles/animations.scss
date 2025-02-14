@@ -1,0 +1,41 @@
+@keyframes pulsate-selectable {
+  50% {
+    box-shadow: 0 0 10px 5px #5f9aff;
+  }
+  0%,
+  100% {
+    box-shadow: 0 0 3px 3px #5f9aff;
+  }
+}
+
+@keyframes pulsate-selectable-transparent {
+  50% {
+    filter: drop-shadow(0 0 10px #5f9aff);
+  }
+  0%,
+  100% {
+    filter: drop-shadow(0 0 3px #5f9aff);
+  }
+}
+
+@keyframes pulsate-attention-zoom {
+  50% {
+    transform: scale(1.2);
+  }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-out-in {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "120": {
+    "name": "Dice and Relic Position",
+    "needReload": false,
+    "values": {
+      "1": { "name": "Default", "cssPref": "panels_float" },
+      "2": { "name": "Under Pyramid", "cssPref": "panels_flow" }
+    },
+    "default": 1
+  }
+}

@@ -1,0 +1,144 @@
+.panels_float {
+  #scroll-to-dice {
+    display: none;
+  }
+
+  .dice-box {
+    width: 200px;
+    position: absolute;
+    top: 0px;
+  }
+}
+
+#scroll-to-dice {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 3em;
+}
+
+.dice-box {
+  --dice-width: 60px;
+  --dice-color: 1;
+
+  position: relative;
+  margin: 5px;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5px;
+
+  &[data-action="flip"] .dice-slot.selected:after {
+    content: "\f079"; // <i class="fa-solid fa-retweet"></i>
+  }
+  &[data-action="turnup"] .dice-slot.selected:after {
+    content: "\2b"; // <i class="fa-solid fa-plus"></i>
+  }
+  &[data-action="turndown"] .dice-slot.selected:after {
+    content: "\f068"; // <i class="fa-solid fa-minus"></i>
+  }
+  &[data-action="turnupdown"] .dice-slot.selected:after {
+    content: "\e43c"; // <i class="fa-solid fa-plus-minus"></i>
+  }
+
+  border: 1px solid;
+  background-color: #e1a47f;
+  border-radius: 10px;
+}
+.dice-box-header {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.dice-box-commands {
+  text-align: center;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  & button {
+    margin: 0px;
+    padding: 10px;
+  }
+}
+
+.dice {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  .dice-slot {
+    background-image: url(img/dice.jpg);
+    width: var(--dice-width);
+    height: var(--dice-width);
+    border-radius: 7px;
+    position: relative;
+    transition: opacity 1s;
+
+    &.rerolling {
+      opacity: 0;
+    }
+
+    &.roll-result {
+      animation: fade-out-in 1s ease;
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      filter: contrast(0.6);
+    }
+    &.selectable {
+      animation: pulsate-selectable 1s ease-out infinite;
+      cursor: pointer;
+    }
+
+    &.selected {
+      animation: none;
+      box-shadow: 0 0 10px 5px #ff5f5f;
+
+      &:after {
+        content: "\f01e"; // <i class="fa-solid fa-arrow-rotate-right"></i>
+        font-family: "Font Awesome 6 Free";
+        color: #fff;
+        filter: drop-shadow(0px 0px 10px #000);
+        font-size: 3em;
+        font-weight: bold;
+        position: absolute;
+        right: -5px;
+        top: -10px;
+        z-index: 2;
+      }
+    }
+
+    &[data-die-value="1"] {
+      background-position: calc(100% / 5 * 0) calc(100% / 5 * var(--dice-color));
+    }
+    &[data-die-value="2"] {
+      background-position: calc(100% / 5 * 1) calc(100% / 5 * var(--dice-color));
+    }
+    &[data-die-value="3"] {
+      background-position: calc(100% / 5 * 2) calc(100% / 5 * var(--dice-color));
+    }
+    &[data-die-value="4"] {
+      background-position: calc(100% / 5 * 3) calc(100% / 5 * var(--dice-color));
+    }
+    &[data-die-value="5"] {
+      background-position: calc(100% / 5 * 4) calc(100% / 5 * var(--dice-color));
+    }
+    &[data-die-value="6"] {
+      background-position: calc(100% / 5 * 5) calc(100% / 5 * var(--dice-color));
+    }
+  }
+}

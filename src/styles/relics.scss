@@ -1,0 +1,135 @@
+@mixin half-relic {
+  .card {
+    height: calc(var(--card-height) / 2);
+    overflow: hidden;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    mask: var(--fadeoutmask);
+
+    .card-sides {
+      height: var(--card-height);
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.panels_float {
+  .relics {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    padding: 0px;
+    min-width: 162px;
+
+    .relic-header {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+      cursor: zoom-in;
+      font-weight: bold;
+    }
+
+    .magnifying-glass {
+      display: inline-block;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+    }
+    .pin {
+      display: inline-block;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+      transform: rotate(-90deg);
+    }
+    &.expanded:not(.pinned) .relic-header {
+      cursor: zoom-out;
+    }
+    &.pinned {
+      .relic-header {
+        cursor: default;
+      }
+      .pin {
+        transform: rotate(0deg);
+      }
+    }
+
+    .card {
+      margin-top: -80px;
+    }
+
+    .relic-stock {
+      margin-top: 105px;
+    }
+
+    &:not(.expanded, .pinned) {
+      .relic-stock {
+        flex-direction: column;
+        margin-top: 105px;
+
+        @include half-relic();
+      }
+    }
+
+    &.expanded,
+    &.pinned {
+      width: 500px;
+      height: auto;
+      min-height: 240px;
+      max-height: unset;
+
+      #relic-header {
+        z-index: auto;
+      }
+    }
+  }
+}
+
+.relics {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  border: 1px solid;
+  background-color: #e1a47f;
+  border-radius: 10px;
+
+  .relic-header {
+    text-align: center;
+    font-size: large;
+  }
+
+  .magnifying-glass,
+  .pin {
+    display: none;
+  }
+  .card-stock {
+    margin: 10px;
+  }
+
+  .card {
+    .card-sides {
+      transform: rotate(180deg);
+    }
+
+    &.used {
+      .card-sides {
+        filter: contrast(0.5);
+      }
+      #btnUsed {
+        display: unset;
+        cursor: not-allowed;
+      }
+      #btnUseRelic {
+        display: none;
+      }
+    }
+  }
+}
+
+.playing-relic {
+  @include half-relic();
+}

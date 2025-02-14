@@ -1,0 +1,50 @@
+{
+  "110": {
+    "name": "Power Relics, Small Backpack",
+    "default": 0,
+    "values": {
+      "0": {
+        "name": "Disabled",
+        "description": "",
+        "tmdisplay": ""
+      },
+      "1": {
+        "name": "Enabled",
+        "description": "Relics can be used without discarding, but you can only have 2 at a time",
+        "tmdisplay": "Power Relics"
+      }
+    }
+  },
+  "120": {
+    "name": "Exploring the Great Pyramid",
+    "default": 0,
+    "values": {
+      "0": {
+        "name": "Disabled",
+        "description": "",
+        "tmdisplay": ""
+      },
+      "1": {
+        "name": "Enabled",
+        "description": "Pyramid has 5 rows with the treasure room in a random location",
+        "tmdisplay": "Great Pyramid"
+      }
+    }
+  },
+  "130": {
+    "name": "I know the way",
+    "default": 0,
+    "values": {
+      "0": {
+        "name": "Disabled",
+        "description": "",
+        "tmdisplay": ""
+      },
+      "1": {
+        "name": "Enabled",
+        "description": "All pyramid cards are played face-up.",
+        "tmdisplay": "Face-up Pyramid"
+      }
+    }
+  }
+}
