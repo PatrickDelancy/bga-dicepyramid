@@ -189,8 +189,12 @@ class dicepyramid implements Game {
     //   return;
     // }
 
-    // switch (stateName) {
-    // }
+    switch (stateName) {
+      case "playerDiscardRelic":
+      case "playerBeforeInitialRoll":
+        document.querySelectorAll(".card.used").forEach((el) => el.classList.remove("used"));
+        break;
+    }
   }
 
   // onLeavingState: this method is called each time we are leaving a game state.
@@ -748,7 +752,6 @@ class dicepyramid implements Game {
   }
   notif_initialRoll(e) {
     console.log("notif_initialRoll", e);
-    document.querySelectorAll(".card.used").forEach((el) => el.classList.remove("used"));
 
     this.notif_reRoll(e);
   }

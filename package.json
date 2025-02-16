@@ -18,7 +18,6 @@
     "bga-cards": "thoun/bga-cards#3.2.1",
     "npm-run-all": "^4.1.5",
     "sass": "^1.32.6",
-    "scrollmap-with-zoom": "github:yansnow78/bga_scrollmap",
     "typescript": "^4.1.3"
   },
   "prettier": {

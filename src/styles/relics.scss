@@ -117,7 +117,7 @@
 
     &.used {
       .card-sides {
-        filter: contrast(0.5);
+        opacity: 0.6;
       }
       #btnUsed {
         display: unset;

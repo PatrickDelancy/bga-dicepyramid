@@ -6,6 +6,7 @@ trait StateGameEndTurnTrait
 {
     public function stEndTurn(): void
     {
+        $this->clearCardsUsed();
         $treasureRoom = $this->getCardsOfTypeInLocation(CARD_2_TREASURE_CHAMBER, 'relics');
 
         $this->incStat(1, 'turns_count');

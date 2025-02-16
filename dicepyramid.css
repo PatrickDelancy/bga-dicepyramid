@@ -501,7 +501,7 @@ body > .card {
   transform: rotate(180deg);
 }
 .relics .card.used .card-sides {
-  filter: contrast(0.5);
+  opacity: 0.6;
 }
 .relics .card.used #btnUsed {
   display: unset;

@@ -2144,8 +2144,12 @@ var dicepyramid = /** @class */ (function () {
         //   console.log("Current player not active.");
         //   return;
         // }
-        // switch (stateName) {
-        // }
+        switch (stateName) {
+            case "playerDiscardRelic":
+            case "playerBeforeInitialRoll":
+                document.querySelectorAll(".card.used").forEach(function (el) { return el.classList.remove("used"); });
+                break;
+        }
     };
     // onLeavingState: this method is called each time we are leaving a game state.
     //                 You can use this method to perform some user interface changes at this moment.
@@ -2622,7 +2626,6 @@ var dicepyramid = /** @class */ (function () {
     };
     dicepyramid.prototype.notif_initialRoll = function (e) {
         console.log("notif_initialRoll", e);
-        document.querySelectorAll(".card.used").forEach(function (el) { return el.classList.remove("used"); });
         this.notif_reRoll(e);
     };
     dicepyramid.prototype.notif_reRoll = function (e) {
