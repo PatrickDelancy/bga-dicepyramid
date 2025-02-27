@@ -2233,6 +2233,10 @@ var dicepyramid = /** @class */ (function () {
                     }
                     else {
                         this.disableDiceSelection();
+                        if (this.gamedatas.gamestate["descriptionmyturnnorerolls"]) {
+                            debugger;
+                            this.statusBar.setTitle(this.gamedatas.gamestate["descriptionmyturnnorerolls"], args);
+                        }
                     }
                     // Dice Button
                     var diceBoxCmd_1 = document.getElementById("dice-box-commands");

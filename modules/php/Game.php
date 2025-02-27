@@ -125,11 +125,16 @@ class Game extends \Table
      * - when the game starts
      * - when a player refreshes the game page (F5)
      */
-    protected function getAllDatas()
+    protected function getAllDatas(): array
     {
         $result = [];
 
         $result["CARD_DATA"] = CARD_DATA;
+
+        $result["players"] = $this->getCollectionFromDb("SELECT `player_id` `id`, `player_score` `score` FROM `player`");
+        foreach ($result["players"] as &$player) {
+            $player['id'] = intval($player['id']);
+        }
 
         $pyramidCards = $this->getCardsInLocation('pyramid') ?? [];
         $result["pyramid"] = count($pyramidCards) == 0 ? [] : array_map(fn($c) => $c['flipped'] ? $c : $this->cardIdOnly($c), $pyramidCards);

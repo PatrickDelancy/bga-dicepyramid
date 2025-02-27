@@ -113,9 +113,8 @@ class dicepyramid implements Game {
           <div id="playing-relic" class="playing-relic"></div>
         </div>
         <div id="relics" class="relics">
-          <div id="relic-header" class="relic-header">${
-            gamedatas.powerRelics ? _("Power Relics") : _("Relics")
-          }<i class="fa6-solid fa6-magnifying-glass magnifying-glass"></i><i id="pin-relic-header" class="fa6-solid fa6-thumbtack pin"></i></div>
+          <div id="relic-header" class="relic-header">${gamedatas.powerRelics ? _("Power Relics") : _("Relics")
+      }<i class="fa6-solid fa6-magnifying-glass magnifying-glass"></i><i id="pin-relic-header" class="fa6-solid fa6-thumbtack pin"></i></div>
           <div id="relic-stock" class="relic-stock"></div>
         </div>
         <a href="#dice-box" id="scroll-to-dice" onclick="document.getElementById('dice-box').scrollIntoView({behavior:'smooth',block:'center'}); event?.preventDefault(); event?.stopPropagation();"><i class="fa6-solid fa6-dice"></i><i class="fa6-solid fa6-arrow-down"></i></a>
@@ -295,6 +294,10 @@ class dicepyramid implements Game {
             });
           } else {
             this.disableDiceSelection();
+            if (this.gamedatas.gamestate["descriptionmyturnnorerolls"]) {
+              debugger;
+              (this as any).statusBar.setTitle(this.gamedatas.gamestate["descriptionmyturnnorerolls"], args);
+            }
           }
 
           // Dice Button
@@ -376,7 +379,7 @@ class dicepyramid implements Game {
           );
 
           // Relic Buttons
-          (this as any).statusBar.addActionButton(_("Used"), () => {}, {
+          (this as any).statusBar.addActionButton(_("Used"), () => { }, {
             id: "btnUsed",
             color: "gray",
             classes: "disabled",

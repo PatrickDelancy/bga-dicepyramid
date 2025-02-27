@@ -27,6 +27,19 @@ interface Game {
   //format_string_recursive: (log: string, args: any) => void;
 }
 
+interface Gamedatas<TPlayer> {
+  current_player_id: string;
+  decision: { decision_type: string };
+  game_result_neutralized: string;
+  gamestate: Gamestate;
+  gamestates: { [gamestateId: number]: Gamestate };
+  neutralized_player_id: string;
+  notifications: { last_packet_id: string; move_nbr: string };
+  playerorder: (string | number)[];
+  players: { [playerId: number]: TPlayer };
+  tablespeed: string;
+}
+
 interface Dojo {
   place: Function;
   style: Function;
@@ -44,7 +57,7 @@ interface Dojo {
   trim: Function;
 }
 
-type Gamestate = any; 
+type Gamestate = any;
 
 interface Player {
   beginner: boolean;
@@ -79,10 +92,7 @@ declare class GameNotifQueue {
    * @param predicate - the function that if returned true will make framework not dispatch notification.
    * NOTE: this cannot be used for syncronious unbound notifications
    */
-  setIgnoreNotificationCheck(
-    notif_type: string,
-    predicate: (notif: object) => boolean
-  ): void;
+  setIgnoreNotificationCheck(notif_type: string, predicate: (notif: object) => boolean): void;
 
   next_log_id: number;
 }
@@ -110,6 +120,23 @@ declare class Counter {
   disable(): void; // Sets value to "-"
 }
 
+declare class GameGuiStatusBar {
+  addActionButton(
+    label: string,
+    callback: Function,
+    params?: {
+      color?: "primary" | "secondary" | "alert";
+      id?: string;
+      classes?: string | string[];
+      destination?: HTMLElement;
+      title?: string;
+    }
+  ): HTMLButtonElement;
+
+  setTitle(title: string, args?: object): void;
+  removeActionButtons(): void;
+}
+
 declare class GameGui {
   page_is_unloading: any;
   game_name: string;
@@ -131,6 +158,8 @@ declare class GameGui {
   interface_status: string;
   next_log_id: number;
 
+  statusBar: GameGuiStatusBar;
+
   isCurrentPlayerActive(): boolean;
   getActivePlayerId(): number;
   addActionButton(
@@ -141,6 +170,7 @@ declare class GameGui {
     blinking?: boolean,
     color?: string
   ): void;
+  getPlayerPanelElement(playerId: string): HTMLElement;
   checkAction(action: any): boolean;
   ajaxcall(
     url: string,
@@ -149,6 +179,11 @@ declare class GameGui {
     resultHandler: (result: any) => void,
     allHandler?: (err: any, result?: any) => void
   ): void;
+  bgaPerformAction(
+    action: string,
+    args?: object,
+    options?: { lock?: boolean; checkAction?: boolean; checkPossibleActions?: boolean }
+  ): Promise<void>;
   connect(node: ElementOrId, ontype: string, handler: any): void;
   disconnect(node: ElementOrId, ontype: string): void;
   connectClass(cls: string, ontype: string, handler: any): void;
@@ -158,6 +193,17 @@ declare class GameGui {
   onLeavingState(stateName: string): void;
   onUpdateActionButtons(stateName: string, args: any): void;
   setupNotifications(): void;
+  bgaSetupPromiseNotifications(
+    params?: Partial<{
+      prefix: string;
+      minDuration: number;
+      minDurationNoText: number;
+      logger: any;
+      ignoreNotifications: string[];
+      onStart: (notifName: string, msg: any, args: any) => void;
+      onEnd: (notifName: string, msg: any, args: any) => void;
+    }>
+  );
 
   setClientState(newState: string, args: object): void;
   restoreServerGameState(): void;
@@ -202,21 +248,10 @@ declare class GameGui {
     offset_x?: number,
     offset_y?: number
   ): void;
-  showBubble(
-    anchor_id: string,
-    text: string,
-    delay?: number,
-    duration?: number,
-    custom_class?: string
-  ): void;
+  showBubble(anchor_id: string, text: string, delay?: number, duration?: number, custom_class?: string): void;
   updateCounters(counters: any): void;
 
-  addTooltip(
-    nodeId: string,
-    helpStringTranslated: string,
-    actionStringTranslated: string,
-    delay?: number
-  ): void;
+  addTooltip(nodeId: string, helpStringTranslated: string, actionStringTranslated: string, delay?: number): void;
   addTooltipHtml(nodeId: string, html: string, delay?: number): void;
   addTooltipHtmlToClass(cssClass: string, html: string, delay?: number): void;
   addTooltipToClass(
@@ -233,11 +268,7 @@ declare class GameGui {
     noHandler?: (param: any) => void,
     param?: any
   ): void;
-  multipleChoiceDialog(
-    message: string,
-    choices: any[],
-    callback: (choice: number) => void
-  ): void;
+  multipleChoiceDialog(message: string, choices: any[], callback: (choice: number) => void): void;
 
   enablePlayerPanel(player_id: number): void;
   disablePlayerPanel(player_id: number): void;
@@ -245,4 +276,7 @@ declare class GameGui {
   dontPreloadImage(image_file_name: string): void;
   ensureSpecificGameImageLoading(list: string[]): void;
   updatePageTitle(gamestate: any);
+
+  getGameUserPreference(pref_id: number): number;
+  setGameUserPreference(pref_id: number, value: number): void;
 }

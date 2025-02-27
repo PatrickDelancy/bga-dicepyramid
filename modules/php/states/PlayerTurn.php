@@ -8,6 +8,7 @@ trait StatePlayerTurnTrait
     {
         $dice = $this->getDice();
         return [
+            'player_id' => $this->getActivePlayerId(),
             'dice' => $dice,
             'rerolls' => $this->globals->get('rerolls'),
             "takeableCards" => $this->getTakeableCards($dice)

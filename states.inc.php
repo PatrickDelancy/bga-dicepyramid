@@ -107,6 +107,7 @@ $machinestates = [
         "name" => "playerTurn",
         "description" => clienttranslate('${actplayer} can reroll dice, take a room, use a relic or discard a relic'),
         "descriptionmyturn" => clienttranslate('${you} can reroll dice, take a room, use a relic or discard a relic'),
+        "descriptionmyturnnorerolls" => clienttranslate('${you} can take a room, use a relic or discard a relic'),
         "type" => "activeplayer",
         "args" => "argPlayerTurn",
         "possibleactions" => [
