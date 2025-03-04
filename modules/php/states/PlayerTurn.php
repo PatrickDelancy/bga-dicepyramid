@@ -65,6 +65,7 @@ trait StatePlayerTurnTrait
             "relic_name" => CARD_DATA[$card['type']]['relic']['name'],
             "card" => $card,
             "flippedCards" => $flippedCards,
+            "i18n" => ['relic_name'],
         ]);
 
         $maxRelics = $this->globals->get('max_relics');
@@ -94,6 +95,7 @@ trait StatePlayerTurnTrait
                     "playerName" => $this->getActivePlayerName(),
                     "relic_name" => CARD_DATA[$card['type']]['relic']['name'],
                     "relicCard" => $card,
+                    "i18n" => ['relic_name'],
                 ]);
 
                 $this->gamestate->nextState("useRelic");
@@ -114,6 +116,7 @@ trait StatePlayerTurnTrait
             "playerName" => $this->getActivePlayerName(),
             "relic_name" => CARD_DATA[$card['type']]['relic']['name'],
             "relicCard" => $card,
+            "i18n" => ['relic_name'],
         ]);
 
         $this->gamestate->nextState("endTurn");

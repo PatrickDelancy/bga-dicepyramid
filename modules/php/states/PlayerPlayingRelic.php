@@ -85,6 +85,7 @@ trait StatePlayerPlayingRelicTrait
             "playerName" => $this->getActivePlayerName(),
             "relic_name" => CARD_DATA[$card['type']]['relic']['name'],
             "relicCard" => $card,
+            "i18n" => ['relic_name'],
         ]);
 
         $this->gamestate->nextState("");
