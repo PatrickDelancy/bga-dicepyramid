@@ -10,6 +10,7 @@ trait StatePlayerPlayingRelicTrait
 
         return [
             'relic_name' => CARD_DATA[$card['type']]['relic']['name'],
+            'i18n' => ['relic_name'],
 
             'card' => $card,
             'actionName' => CARD_DATA[$card['type']]['relic']['action'],
