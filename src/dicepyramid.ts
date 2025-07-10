@@ -320,7 +320,7 @@ class dicepyramid implements Game {
                   .bgaPerformAction("actRerollDice", {
                     diceIds: idsString,
                   })
-                  .then(() => diceBoxCmd.classList.remove("submitting"));
+                  ?.then(() => diceBoxCmd.classList.remove("submitting"));
               }, 500);
             },
             {
@@ -393,7 +393,7 @@ class dicepyramid implements Game {
                 .bgaPerformAction("actPlayRelic", {
                   cardId: selectedCard.id,
                 })
-                .then(() => document.getElementById("relics").classList.remove("expanded"));
+                ?.then(() => document.getElementById("relics").classList.remove("expanded"));
             },
             {
               id: "btnUseRelic",
@@ -410,7 +410,7 @@ class dicepyramid implements Game {
                 .bgaPerformAction("actTurnDiscardRelic", {
                   cardId: selectedCard.id,
                 })
-                .then(() => document.getElementById("relics").classList.remove("expanded"));
+                ?.then(() => document.getElementById("relics").classList.remove("expanded"));
             },
             {
               id: "btnDiscardRelicForNewTurn",
@@ -567,7 +567,7 @@ class dicepyramid implements Game {
                 .bgaPerformAction("actDiscardRelic", {
                   cardId: selectedCard.id,
                 })
-                .then(() => document.getElementById("relics").classList.remove("expanded"));
+                ?.then(() => document.getElementById("relics").classList.remove("expanded"));
             },
             {
               id: "btnDiscardRelic",

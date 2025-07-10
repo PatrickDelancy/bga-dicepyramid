@@ -2250,13 +2250,13 @@ var dicepyramid = /** @class */ (function () {
                         selectedDice.forEach(function (d) { var _a; return (_a = _this.getDiceElement(d.id)) === null || _a === void 0 ? void 0 : _a.classList.add("rerolling"); });
                         console.log("Rerolling ", selectedDice);
                         setTimeout(function () {
+                            var _a;
                             var idsString = selectedDice.map(function (d) { return d.id; }).join(",");
                             console.log("Rerolling ", selectedDice, idsString);
-                            _this
+                            (_a = _this
                                 .bgaPerformAction("actRerollDice", {
                                 diceIds: idsString,
-                            })
-                                .then(function () { return diceBoxCmd_1.classList.remove("submitting"); });
+                            })) === null || _a === void 0 ? void 0 : _a.then(function () { return diceBoxCmd_1.classList.remove("submitting"); });
                         }, 500);
                     }, {
                         id: "btnRerollSelectedDice",
@@ -2311,12 +2311,12 @@ var dicepyramid = /** @class */ (function () {
                         destination: document.getElementById("relic-card-commands"),
                     });
                     this.statusBar.addActionButton(_("Use Relic"), function () {
+                        var _a;
                         var selectedCard = _this.relicStock.getSelection()[0];
-                        _this
+                        (_a = _this
                             .bgaPerformAction("actPlayRelic", {
                             cardId: selectedCard.id,
-                        })
-                            .then(function () { return document.getElementById("relics").classList.remove("expanded"); });
+                        })) === null || _a === void 0 ? void 0 : _a.then(function () { return document.getElementById("relics").classList.remove("expanded"); });
                     }, {
                         id: "btnUseRelic",
                         color: "primary",
@@ -2324,12 +2324,12 @@ var dicepyramid = /** @class */ (function () {
                         destination: document.getElementById("relic-card-commands"),
                     });
                     this.statusBar.addActionButton(_("Discard for new turn"), function () {
+                        var _a;
                         var selectedCard = _this.relicStock.getSelection()[0];
-                        _this
+                        (_a = _this
                             .bgaPerformAction("actTurnDiscardRelic", {
                             cardId: selectedCard.id,
-                        })
-                            .then(function () { return document.getElementById("relics").classList.remove("expanded"); });
+                        })) === null || _a === void 0 ? void 0 : _a.then(function () { return document.getElementById("relics").classList.remove("expanded"); });
                     }, {
                         id: "btnDiscardRelicForNewTurn",
                         color: "primary",
@@ -2446,12 +2446,12 @@ var dicepyramid = /** @class */ (function () {
                     document.getElementById("relics").classList.add("expanded");
                     // Relic Button
                     this.statusBar.addActionButton(_("Discard"), function () {
+                        var _a;
                         var selectedCard = _this.relicStock.getSelection()[0];
-                        _this
+                        (_a = _this
                             .bgaPerformAction("actDiscardRelic", {
                             cardId: selectedCard.id,
-                        })
-                            .then(function () { return document.getElementById("relics").classList.remove("expanded"); });
+                        })) === null || _a === void 0 ? void 0 : _a.then(function () { return document.getElementById("relics").classList.remove("expanded"); });
                     }, {
                         id: "btnDiscardRelic",
                         color: "primary",
